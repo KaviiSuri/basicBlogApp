@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+    <br><br>
+    <div class="ui main text container">
+        RESTful Blog App
+    </div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blogs.forEach((blog) => { %>
+                <div class="item">
+
+                    <div class="image">
+                        <img src="<%= blog.image %>"> <br>
+                    </div>
+                    <div class="content">
+                        <a href="/blogs/<%=blog._id%>">
+                            <%blog.title%>
+                        </a>
+                        <div class="meta">
+                            <span><%= blog.created %></span>
+                        </div>
+                        <div class="description">
+                            <p>
+                                <%- blog.body.substring(0, 100) %>...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="extra">
+                        <a href="/blogs/<%=blog._id%>">
+                            Read More <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+    <h1>
+        This is the INDEX page</h1>
+
+
+    <%- include("partials/footer") %>
